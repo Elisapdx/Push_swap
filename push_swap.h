@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: epraduro <epraduro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: elisa <elisa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 15:24:58 by elisa             #+#    #+#             */
-/*   Updated: 2023/04/02 15:30:35 by epraduro         ###   ########.fr       */
+/*   Updated: 2023/04/18 15:48:27 by elisa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void		ft_rrb(t_stack *groot);
 void		ft_rrr(t_stack *groot);
 
 /* create.c */
-void		free_tab(char **tab);
+
 int			ft_atoi(const char *str);
 int			valid_argument(int argc, char **argv);
 int			check_str(t_stack *groot, char *str);
@@ -77,6 +77,7 @@ void		tri_4(t_stack *groot);
 void		tri_5(t_stack *groot);
 
 /* utils.c */
+void		free_tab(char **tab);
 void		ft_putchar(char c);
 void		ft_putstr(char *str);
 void		smart_remonte(t_stack *groot, int pos);
@@ -101,6 +102,12 @@ t_plates	*find_position_max_b(t_stack *groot, int *position);
 /* main.c */
 void		use(void (*move)(t_stack *), t_stack *groot, char *str);
 
-void		tall_nbr(t_stack *groot);
+void		tri_tall_nbr(t_stack *groot);
+
+/* check_error.c */
+
+int			stack_tri(t_stack *groot);
+int			check_duplicate(t_stack *groot);
+int			check_signe(int argc, char **argv);
 
 #endif

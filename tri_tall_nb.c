@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_tall_nb.c                                     :+:      :+:    :+:   */
+/*   tri_tall_nb.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: epraduro <epraduro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: elisa <elisa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 15:13:49 by elisa             #+#    #+#             */
-/*   Updated: 2023/04/02 15:11:18 by epraduro         ###   ########.fr       */
+/*   Updated: 2023/04/18 15:52:04 by elisa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	chunck(t_stack *groot, int start)
 	}
 }
 
-void	tall_nbr(t_stack *groot)
+void	tri_tall_nbr(t_stack *groot)
 {
 	t_plates	*tmp;
 	int			i;

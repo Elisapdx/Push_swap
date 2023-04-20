@@ -6,11 +6,11 @@
 #    By: elisa <elisa@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/21 11:40:39 by elisa             #+#    #+#              #
-#    Updated: 2023/03/25 12:06:31 by elisa            ###   ########.fr        #
+#    Updated: 2023/04/10 16:28:52 by elisa            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS= main.c init.c ft_stacking_up.c create.c utils.c tri_petit_nb.c test_tall_nb.c raise.c ft_split.c instructions/ft_p.c instructions/ft_s.c instructions/ft_r.c instructions/ft_rr.c
+SRCS= check_error.c create.c ft_split.c ft_stacking_up.c init.c main.c raise.c tri_petit_nb.c tri_tall_nb.c utils.c instructions/ft_p.c instructions/ft_s.c instructions/ft_r.c instructions/ft_rr.c
 
 NAME= push_swap
 CFLAGS = -Wall -Wextra -Werror

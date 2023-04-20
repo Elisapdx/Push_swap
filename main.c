@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: epraduro <epraduro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: elisa <elisa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:46:41 by elisa             #+#    #+#             */
-/*   Updated: 2023/04/02 15:08:52 by epraduro         ###   ########.fr       */
+/*   Updated: 2023/04/19 15:07:18 by elisa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,23 @@ void	use(void (*instructions)(t_stack *), t_stack *groot, char *str)
 {
 	instructions(groot);
 	ft_putstr(str);
+}
+
+void	choose_tri(t_stack *groot)
+{
+	if (!stack_tri(groot))
+	{
+		if (groot->size_a == 2)
+			tri_inf3(groot);
+		else if (groot->size_a == 3)
+			tri_3(groot);
+		else if (groot->size_a == 4)
+			tri_4(groot);
+		else if (groot->size_a == 5)
+			tri_5(groot);
+		else if (groot->size_a > 5)
+			tri_tall_nbr(groot);
+	}
 }
 
 int	find_max(t_stack *groot)
@@ -57,6 +74,5 @@ int	main(int argc, char **argv)
 	groot.max_a = find_max(&groot);
 	groot.max = groot.size_a;
 	index_nb(&groot);
-	tall_nbr(&groot);
+	choose_tri(&groot);
 }
-// revoir le parsing des arguments

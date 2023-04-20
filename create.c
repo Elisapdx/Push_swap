@@ -3,52 +3,48 @@
 /*                                                        :::      ::::::::   */
 /*   create.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: epraduro <epraduro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: elisa <elisa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 12:52:40 by elisa             #+#    #+#             */
-/*   Updated: 2023/04/02 15:06:18 by epraduro         ###   ########.fr       */
+/*   Updated: 2023/04/15 11:57:24 by elisa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_tab(char **tab)
+void	overflow(void)
 {
-	int	i;
-
-	i = -1;
-	while (tab[++i])
-		free(tab[i]);
-	free(tab);
+	write(2, "Error\n", 7);
+	exit(0);
 }
 
 int	ft_atoi(const char *str)
 {
-	int	a;
-	int	b;
+	int	element;
+	int	nbr;
 	int	i;
 
-	a = 1;
-	b = 0;
+	element = 1;
+	nbr = 0;
 	i = 0;
-	while (str[i] && (str[i] == ' ' || str[i] == '\n' || str[i] == '\t'
-			|| str[i] == '\f' || str[i] == '\r' || str[i] == '\v'))
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
 		i++;
 	if (str[i] == '-')
 	{
-			a *= -1;
+			element *= -1;
 			i++;
 	}
 	else if (str[i] == '+')
 		i++;
-	while (str[i] >= '0' && str[i] <= '9')
+	while (str[i] && str[i] >= '0' && str[i] <= '9')
 	{
-		b = b + (str[i] - 48);
-		if (!(str[i + 1] < '0' || str[i + 1] > '9'))
-			b = b * 10;
+		if ((nbr * 10 + (str[i] - '0')) / 10 != nbr)
+			overflow();
+		nbr *= 10;
+		nbr += str[i] - '0';
 		i++;
 	}
-	return (a * b);
+	return (element * nbr);
 }
 
 int	valid_argument(int argc, char **argv)
@@ -94,7 +90,7 @@ t_stack	*create(t_stack *groot, int argc, char **argv)
 	int	i;
 
 	i = 1;
-	if (!valid_argument(argc, argv))
+	if (!(valid_argument(argc, argv) && check_signe(argc, argv)))
 	{
 		ft_putstr("Error\n");
 		return (NULL);
@@ -103,6 +99,11 @@ t_stack	*create(t_stack *groot, int argc, char **argv)
 	{
 		check_str(groot, argv[i]);
 		i++;
+	}
+	if (!check_duplicate(groot))
+	{
+		ft_putstr("Error\n");
+		return (NULL);
 	}
 	return (groot);
 }

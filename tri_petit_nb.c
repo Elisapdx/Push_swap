@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tri_petit_nb.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: epraduro <epraduro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: elisa <elisa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 15:29:38 by elisa             #+#    #+#             */
-/*   Updated: 2023/04/02 15:23:06 by epraduro         ###   ########.fr       */
+/*   Updated: 2023/04/19 12:28:11 by elisa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,36 @@ void	tri_3(t_stack *groot)
 		use(ft_rra, groot, "rra\n");
 }
 
+/*void	tri_3(t_stack *groot)
+{
+	int	first;
+	int	next;
+	int	next_next;
+
+	first = groot->a->index;
+	next = groot->a->next->index;
+	next_next = groot->a->next->next->index;
+	if (!stack_tri(groot))
+	{
+		if ((first > next) && (next < next_next) && (next_next > first))
+			use(ft_sa, groot, "sa\n");
+		else if ((first > next) && (next > next_next) && (next_next < first))
+		{
+			use(ft_sa, groot, "sa\n");
+			use(ft_rra, groot, "rra\n");
+		}
+		else if ((first > next) && (next < next_next) && (next_next < first))
+			use(ft_ra, groot, "ra\n");
+		else if ((first < next) && (next > next_next) && (next_next > first))
+		{
+			use(ft_sa, groot, "sa\n");
+			use(ft_ra, groot, "ra\n");
+		}
+		else if ((first < next) && (next > next_next) && (next_next < first))
+			use(ft_rra, groot, "rra\n");
+	}
+}*/
+
 void	tri_4(t_stack *groot)
 {
 	smart_remonte(groot, find_position_min(groot));
@@ -52,6 +82,17 @@ void	tri_4(t_stack *groot)
 	tri_3(groot);
 	use(ft_pa, groot, "pa\n");
 }
+
+/*void	tri_4(t_stack *groot)
+{
+	if (!stack_tri(groot))
+	{
+		smart_remonte(groot, find_position_min(groot));
+		use(ft_pb, groot, "pb\n");
+		tri_3(groot);
+		use(ft_pa, groot, "pa\n");
+	}
+}*/
 
 void	tri_5(t_stack *groot)
 {
